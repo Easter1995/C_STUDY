@@ -1,3 +1,4 @@
+//递归打印一个数的全部素数因数
 #include<stdio.h>
 void printFactor(int,int);
 int isPrime(int);
@@ -9,7 +10,7 @@ int main()
         printFactor(i,1);
     return 0;
 }
-int isPrime(int n)
+int isPrime(int n)//判断是否为素数
 {
     if(n==1)
         return 0;

@@ -1,3 +1,5 @@
+//重组的规则为：我们给定一个位置，该位置前的数字不变，指定位置的数字挪到个位，该位置后边的数字依次向前挪一位。
+//例如：待重组整数为1234567890，指定位置为5，则重组后的数字为1234678905。
 #include <stdio.h>
 
 long long recombination(long long num,int position) ; 
@@ -33,8 +35,8 @@ long long recombination(long long num,int position)
         if(i==bit-position)
             x=temp2%10;
     }
-    // if(n<=10)
-    //     return num;
+     if(n<=10)
+        return num;
     temp1+=num%(n/10)*10+x;
     return temp1;
 }
