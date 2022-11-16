@@ -1,37 +1,39 @@
-//插入排序
 #include<stdio.h>
-#define len 5
-void insertSort(int a[])
-{
-	int i,j,temp;
-	for(i=1;i<len;i++)
-	{
-		temp = a[i];
-		//当前数小于前一位数时
-		if(a[i] < a[i-1])
-		{
-			//将子序列重新排列为有序序列
-			for(j=i-1;temp<a[j];j--)
-			{
-				a[j+1] = a[j];
-			}
-			a[j+1] = temp;
-		}
-	}
-}
+//插入排序（升序） 
+//参数说明：数组，数组中已有元素个数 
+void InsertSort(int a[],int n);
 int main()
 {
-	int a[] = {45,32,56,71,12};
-	int i;
-	printf("未排序前：\n"); 
-	for(i=0;i<len;i++)
-	{
-		printf("%d  ", a[i]);
-	}
-	printf("\n经过直接插入排序后：\n"); 
-	insertSort(a);
-	for(i=0;i<len;i++)
-	{
-		printf("%d  ", a[i]);
-	}
+    int n,i,num[1000] ;
+    scanf( "%d" , &n ); 
+    for( i = 0 ; i < n ; i++ ) 
+        scanf( "%d", &num[i] ) ;
+    InsertSort( num , n ) ; 
+    return 0 ;
+}
+void InsertSort(int a[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {                         //用i来调整end
+        int end = i;          //已排序序列[0, end]
+        int tmp = a[end + 1]; //向已排序序列中插入数据a[end + 1]，先将未排序数据a[end + 1]保存到tmp
+        while (end >= 0)
+        {
+            //在已排序序列中从后向前扫描，找到合适的插入位置时，退出循环
+            if (tmp < a[end])
+            {
+                //如果tmp<a[end]则a[end]向后移动（升序）
+                a[end + 1] = a[end];
+                end--;
+            }
+            else
+            {
+                break; //因为[0,end]是有序序列，如果tmp>=a[end]，则将tmp插入到end+1位置即可
+            }
+        }
+        a[end + 1] = tmp; //退出循环后，将tmp插入找到的合适的位置
+        for (int j = 0; j < n - 1; j++)
+            printf("%d ", a[j]);
+        printf("%d\n", a[n - 1]);
+    }
 }
