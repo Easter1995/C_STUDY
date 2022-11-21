@@ -27,9 +27,7 @@ void InsertSort(int a[], int n)
                 end--;
             }
             else
-            {
                 break; //因为[0,end]是有序序列，如果tmp>=a[end]，则将tmp插入到end+1位置即可
-            }
         }
         a[end + 1] = tmp; //退出循环后，将tmp插入找到的合适的位置
         for (int j = 0; j < n - 1; j++)
