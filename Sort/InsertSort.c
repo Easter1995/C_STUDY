@@ -1,18 +1,11 @@
+//插入排序
 #include<stdio.h>
-//插入排序（升序） 
-//参数说明：数组，数组中已有元素个数 
-void InsertSort(int a[],int n);
 int main()
 {
-    int n,i,num[1000] ;
-    scanf( "%d" , &n ); 
-    for( i = 0 ; i < n ; i++ ) 
-        scanf( "%d", &num[i] ) ;
-    InsertSort( num , n ) ; 
-    return 0 ;
-}
-void InsertSort(int a[], int n)
-{
+    int i,n,a[100];
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
     for (int i = 0; i < n - 1; i++)
     {                         //用i来调整end
         int end = i;          //已排序序列[0, end]
